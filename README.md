@@ -24,14 +24,22 @@ Three approaches were evaluated:
 The project also identified and corrected an evaluation issue during model validation, helping ensure that the final model comparison reflected true out-of-sample forecasting performance.
 
 ---
+## 📊 Forecast Preview
+
+![Model Forecast Comparison](images/model_forecast_comparison.png)
+
+**Result:** SARIMA achieved the strongest validated forecasting performance,
+with MAE **180.42** compared with **205.84** for the Naive baseline and
+**259.18** for Random Forest.
+---
 
 ## 📊 Model Performance
 
-| Model | Result |
-|---|---|
-| Naive Baseline | MAE: 206 |
-| SARIMA | **MAE: 180** |
-| Random Forest | Used as an additional forecasting benchmark |
+| Model | MAE | RMSE |
+|---|---:|---:|
+| Naive Baseline | 205.84 | 270.71 |
+| Random Forest | 259.18 | 314.70 |
+| SARIMA | **180.42** | **212.13** |
 
 **Best validated model:** SARIMA
 
@@ -46,7 +54,30 @@ The project showed that model performance depends not only on the forecasting al
 An earlier evaluation approach was reviewed and corrected to avoid overstating model performance. After re-evaluation, SARIMA provided the strongest validated result.
 
 ---
+## 📈 Supporting Analysis
 
+### Regional Trends
+
+![Top Regions 7-Day Moving Average](images/top_regions_ma7.png)
+
+The 7-day moving average shows a common late-March peak followed by a gradual
+decline across the most affected regions.
+
+### Lombardia Outbreak
+
+![COVID-19 Outbreak in Lombardia](images/lombardia_outbreak.png)
+
+Lombardia experienced the most severe outbreak in the dataset and was selected
+as the primary region for forecasting analysis.
+
+### Random Forest Feature Importance
+
+![Random Forest Feature Importance](images/rf_feature_importance.png)
+
+The feature-importance analysis helps explain the Random Forest benchmark,
+with lagged case counts and recent moving-average information contributing
+most strongly to its predictions.
+---
 ## ⚙️ Workflow
 
 ```text
